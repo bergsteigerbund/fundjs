@@ -1,0 +1,28 @@
+@use "node_modules/@picocss/pico/scss/pico" with (
+  $theme-color: "green"
+);
+
+@use "node_modules/react-toastify/dist/ReactToastify.css";
+
+.auto-width {
+  width: auto !important;
+}
+
+.mx-5 {
+  margin-left: 1.25rem !important;
+  margin-right: 1.25rem !important;
+}
+
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+.label-150 {
+  width: 150px;
+}
+
+label {
+  display: inline-block;
+}
