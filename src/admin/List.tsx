@@ -86,13 +86,27 @@ function Admin() {
     }
   };
 
+  const logout = () => {
+    pb.authStore.clear();
+    navigate("/login");
+  };
+
   return (
     <>
-      <h5 style={{ marginTop: 20 }}>
-        <Link to={`/admin/add`}>Fundsache hinzufügen</Link>
-        <Link to={`/admin/stats`} style={{ marginLeft: 20 }}>
-          Statistik
-        </Link>
+      <h5
+        style={{
+          marginTop: 20,
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <div style={{display: "flex", gap: 20}}>
+          <Link to={`/admin/add`}>Fundsache hinzufügen</Link>
+          <Link to={`/admin/stats`}>Statistik</Link>
+        </div>
+        <a href="#" onClick={logout}>
+          Logout
+        </a>
       </h5>
 
       <h4>Suche</h4>
