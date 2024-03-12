@@ -26,7 +26,7 @@ function Login() {
   return (
     <>
       <h3 style={{ marginTop: 40, textAlign: "center" }}>
-        🌂 SBB Fundsachenverwaltung 🎒
+        🌂 SBB Fundsachen 🎒
       </h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Nutzername</label>
@@ -48,7 +48,7 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button type="submit" style={{marginTop: 20}}>Login</button>
       </form>
     </>
   );
