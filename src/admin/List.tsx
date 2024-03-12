@@ -178,7 +178,7 @@ function Admin() {
 
         <label htmlFor="textSearch">Freie Suche</label>
         <input
-          style={{ width: 500 }}
+          style={{ width: "auto" }}
           className="mx-5"
           type="text"
           id="textSearch"
