@@ -128,12 +128,13 @@ function Add() {
         {imgSrc === "" ? (
           <>
             <Webcam
-              style={{ display: "block", marginBottom: 10 }}
+              style={{ display: "block", marginBottom: 10, maxWidth: "100%" }}
               audio={false}
-              height={500}
-              width={700}
               screenshotFormat="image/jpeg"
               ref={webcamRef}
+              videoConstraints={{
+                facingMode: "environment"
+              }}
             ></Webcam>
             <button onClick={capture} autoFocus>
               Foto aufnehmen
