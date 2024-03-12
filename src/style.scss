@@ -26,3 +26,12 @@
 label {
   display: inline-block;
 }
+
+.item-card {
+  background-color: #E2E2E2;
+}
+@media (prefers-color-scheme: dark) {
+  .item-card {
+    background-color: #333333;
+  }
+}

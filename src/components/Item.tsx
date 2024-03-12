@@ -28,8 +28,8 @@ function Item({
 
   return (
     <div
+      className="item-card"
       style={{
-        backgroundColor: "#E2E2E2",
         display: "inline-block",
         marginRight: 20,
         marginBottom: 20,
