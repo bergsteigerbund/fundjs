@@ -33,6 +33,7 @@ function App() {
     }
     const result = await pb.collection("publicItems").getFullList({
       filter: filter,
+      sort: "-founddate",
     });
     setItems(result);
     setIsLoading(false);

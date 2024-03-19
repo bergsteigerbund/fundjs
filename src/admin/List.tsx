@@ -51,6 +51,7 @@ function Admin() {
     const result = await pb.collection("items").getFullList({
       expand: "category",
       filter: filter,
+      sort: "-founddate",
     });
     setItems(result);
   };
