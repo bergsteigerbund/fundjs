@@ -1,7 +1,7 @@
 import PocketBase from "pocketbase";
 
 const baseUrl =
-  import.meta.env.MODE == "development" ? "http://127.0.0.1:8090" : "https://next.fundsachen.bergsteigerbund.de";
+  import.meta.env.MODE == "development" ? "http://127.0.0.1:8090" : "https://fundsachen.bergsteigerbund.de";
 const pb = new PocketBase(baseUrl);
 
 const formatDate = (date: string) => {
