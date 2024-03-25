@@ -45,13 +45,13 @@ function Item({
             borderTopRightRadius: 20,
             width: 440,
           }}
-          src={`${baseUrl}/api/files/items/${item.id}/${item.image}`}
+          src={`${baseUrl}/api/files/items/${item.id}/${item.image}/?thumb=440x0`}
         />
       ) : (
-        "kein Bild"
+        <div style={{padding: 20, textAlign: "center", width: 440}}>kein Bild</div>
       )}
       <div style={{ padding: 20 }}>
-        <div style={{ fontWeight: "bold", marginBottom: 20 }}>
+        <div style={{ fontWeight: "bold", marginBottom: 20, maxWidth: 400 }}>
           {item.comment}
         </div>
 
