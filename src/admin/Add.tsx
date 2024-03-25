@@ -21,7 +21,7 @@ function Add() {
   );
   const [fundort, setFundort] = useState("SBB Kletterhalle");
   const [kategorie, setKategorie] = useState("");
-  const [standort, setStandort] = useState("Theke; Kiste ");
+  const [standort, setStandort] = useState("Kiste ");
   const [kommentar, setKommentar] = useState("");
 
   // Categories
