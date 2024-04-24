@@ -29,7 +29,7 @@ function Admin() {
   const [category, setCategory] = useState("");
   const [textSearch, setTextSearch] = useState("");
 
-  const [selectedFilter, setSelectedFilter] = useState("all");
+  const [selectedFilter, setSelectedFilter] = useState("not-picked-up");
 
   const [items, setItems] = useState<RecordModel[]>([]);
 
