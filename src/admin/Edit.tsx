@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { RecordModel } from "pocketbase";
 import { toast } from "react-toastify";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { pb, baseUrl } from "../util";
 
@@ -91,7 +91,7 @@ function Edit() {
   return (
     <>
       <h5 style={{ marginTop: 30 }}>
-        <Link to={`/admin`}>Zurück</Link>
+        <a href="#" onClick={() => navigate(-1)}>Zurück</a>
       </h5>
       <h1>Objekt bearbeiten</h1>
       <form onSubmit={handleSubmit}>

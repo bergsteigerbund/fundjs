@@ -10,6 +10,8 @@ import Add from "./admin/Add.tsx";
 import Edit from "./admin/Edit.tsx";
 import Stats from "./admin/Stats.tsx";
 import Admin from "./admin/List.tsx";
+import Box from "./admin/Box.tsx";
+
 
 import "./style.scss";
 
@@ -38,6 +40,10 @@ const router = createBrowserRouter([
     path: "/admin/stats",
     element: <Stats />,
   },
+  {
+    path: "/admin/box/:boxName",
+    element: <Box />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

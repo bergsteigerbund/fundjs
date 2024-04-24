@@ -67,7 +67,7 @@ function Stats() {
           {boxes.map((box) => {
             return (
               <tr key={box.id}>
-                <td>{box.location}</td>
+                <Link to={`/admin/box/${box.location}`}><td>{box.location}</td></Link>
                 <td>{formatDate(box.oldest)}</td>
                 <td>{formatDate(box.youngest)}</td>
                 <td>{box.count}</td>
