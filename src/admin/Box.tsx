@@ -19,10 +19,10 @@ function Admin() {
   let { boxName } = useParams<{ boxName: string }>();
 
   const [items, setItems] = useState<RecordModel[]>([]);
+  const [boxes, setBoxes] = useState<RecordModel[]>([]);
+  const [destinationBox, setDestinationBox] = useState<string>("");
 
   const fetchItems = async () => {
-    console.log(boxName);
-
     const result = await pb.collection("items").getFullList({
       filter: `location = "${boxName}"`,
       expand: "category",
@@ -30,8 +30,14 @@ function Admin() {
     setItems(result);
   };
 
+  const fetchBoxes = async () => {
+    const result = await pb.collection("boxes").getFullList();
+    setBoxes(result);
+  };
+
   useEffect(() => {
     fetchItems();
+    fetchBoxes();
   }, []);
 
   const handlePickup = async (itemId: string) => {
@@ -49,6 +55,35 @@ function Admin() {
     }
   };
 
+  const handleMoveAll = async () => {
+    if (!destinationBox) {
+      alert("Bitte Zielbox auswählen");
+      return;
+    }
+
+    try {
+      // move one by one
+      for (let item of items) {
+        await pb.collection("items").update(item.id, {
+          location: destinationBox,
+        });
+        // remove from current list
+        setItems((prevItems) =>
+          prevItems.filter((prevItem) => prevItem.id !== item.id)
+        );
+      }
+      toast.success("Fundsachen verschoben 🎉");
+      navigate(`/admin/box/${destinationBox}`);
+      boxName = destinationBox;
+      fetchItems();
+      fetchBoxes();
+
+    } catch (e) {
+      console.log(e);
+      toast.error("Fehler beim Verschieben");
+    }
+  }
+
   return (
     <>
       <h4 style={{ marginTop: 20 }}>
@@ -56,6 +91,25 @@ function Admin() {
       </h4>
 
       <h1>{boxName}</h1>
+
+      <div style={{ display: "flex", marginBottom: 20 }}>
+        <span>Alles in <select
+          className="auto-width mx-5"
+          id="category"
+          name="category"
+          value={destinationBox}
+          onChange={(e) => setDestinationBox(e.target.value)}
+          style={{marginBottom: 0}}
+        >
+          <option value="">Zielbox auswählen</option>
+          {boxes.map((box) => (
+            <option key={box.id} value={box.location}>
+              {box.location}
+            </option>
+          ))}
+        </select></span>
+        <button onClick={handleMoveAll} style={{marginLeft: 30}}>verschieben</button>
+      </div>
 
       {items.map((item) => (
         <Item
