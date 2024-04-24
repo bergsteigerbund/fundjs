@@ -36,7 +36,7 @@ function Admin() {
   const fetchItems = async () => {
     let filter = `founddate >= "${start}" && founddate <= "${end}"`;
     if (textSearch) {
-      filter = `comment ~ "%${textSearch}%"`;
+      filter += `&& comment ~ "%${textSearch}%"`;
     }
     if (category) {
       filter += `&& category.id = "${category}"`;
